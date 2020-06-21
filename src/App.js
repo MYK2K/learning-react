@@ -1,11 +1,16 @@
 import React from 'react';
-import './App.css';
 import HelloWorld from './components/HelloWorld';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <div>
+      <Header />
+      
       <HelloWorld name="Mayank"/>
+
+      <Footer />
     </div>
   );
 }
