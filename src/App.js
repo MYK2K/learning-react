@@ -12,6 +12,7 @@ import Footer from './components/Footer';
 // Import Views
 import Home from './views/Home';
 import About from './views/About';
+import Product from './views/Product';
 
 function App() {
   return (
@@ -20,13 +21,16 @@ function App() {
 
         <Header />
         
-        <div className="container">
+        <div className="container-fluid p-3">
           <Switch>
             <Route exact path="/">
               <Home />
             </Route>
             <Route path="/about">
               <About />
+            </Route>
+            <Route path="/products/:id">
+              <Product />
             </Route>
           </Switch>
         </div>
