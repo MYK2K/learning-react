@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import Loader from '../components/Loader';
 
 function Product() {
   const {id} = useParams();
@@ -27,13 +28,14 @@ function Product() {
           <Card.Text>
             <h3>${product.price}</h3>
           </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
+          <Button variant="primary">Buy Now</Button>
         </Card.Body>
       </Card>
     );
   } else {
     return (
       <div>
+        <Loader />
       </div>
     );
   }
