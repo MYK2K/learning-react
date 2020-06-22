@@ -2,7 +2,7 @@ import React from 'react';
 import {FontAwesomeIcon as FontAwesome} from '@fortawesome/react-fontawesome';
 import {faCircleNotch} from '@fortawesome/free-solid-svg-icons';
 
-function Footer(props) {
+function Loader() {
   return (
     <h1 className="text-info text-center">
       <FontAwesome icon={faCircleNotch} spin/>
@@ -10,4 +10,4 @@ function Footer(props) {
   );
 }
 
-export default Footer;
+export default Loader;

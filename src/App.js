@@ -16,12 +16,12 @@ import Product from './views/Product';
 
 function App() {
   return (
-    <div>
+    <div className="position-relative">
       <Router>
 
         <Header />
         
-        <div className="container-fluid p-3">
+        <div className="container-fluid p-3 pb-5">
           <Switch>
             <Route exact path="/">
               <Home />

@@ -1,33 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Loader from '../components/Loader';
+import { Get } from '../hooks/HttpRequest';
 
 function Product() {
   const {id} = useParams();
   const apiUrl = `https://5ef0d1f51faf160016b4cf96.mockapi.io/api/v1/products/${id}`;
-  const [product, setProduct] = useState(null);
+  const product = Get(apiUrl);
 
-  useEffect(() => {
-    axios.get(apiUrl)
-      .then(response => {
-        setProduct(response.data);
-        console.log(product);
-      });
-  }, [apiUrl]);
+  if (product.error) {
+    return (
+      <div className="text-center">
+        <h4 className="text-danger">Product Not Found</h4>
+      </div>
+    )
+  }
 
-  if (product) {
+  if (product.data) {
     return (
       <Card>
-        <Card.Img variant="top" src={product.images[0].imageUrl} />
+        <Card.Img variant="top" src={product.data.images[0].imageUrl} />
         <Card.Body>
-          <Card.Title>{product.name}</Card.Title>
-          <Card.Text>{product.description}</Card.Text>
-          <Card.Text>
-            <h3>${product.price}</h3>
-          </Card.Text>
+          <Card.Title>{product.data.name}</Card.Title>
+          <Card.Text>{product.data.description}</Card.Text>
+          <Card.Text>${product.data.price}</Card.Text>
           <Button variant="primary">Buy Now</Button>
         </Card.Body>
       </Card>

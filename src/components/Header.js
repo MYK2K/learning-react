@@ -6,15 +6,11 @@ import { Link } from 'react-router-dom';
 function Header(props) {
   return (
     <Navbar collapseOnSelect expand="sm" bg="info" variant="dark">
-      <Link to="/">
-        <Navbar.Brand href="/">LearnReact</Navbar.Brand>
-      </Link>
+      <Navbar.Brand as={Link} to="/">LearnReact</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="ml-auto">
-          <Link to="/about">
-            <Nav.Link href="/about">About Us</Nav.Link>
-          </Link>
+            <Nav.Link as={Link} to="/about">About Us</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
